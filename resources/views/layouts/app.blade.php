@@ -247,7 +247,7 @@
                         <li class="nav-item">
                             <a href="{{ route('ubah-profile') }}"
                                 class="nav-link {{ request()->routeIs('ubah-profile') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-key"></i>
+                                <i class="nav-icon fas fa-cog"></i>
                                 <p>
                                     Ubah Profile
                                 </p>
