@@ -36,14 +36,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-column">
-                                        <h3 class="card-title mt-1">
-                                            Daftar Karyawan
-                                        </h3>
-                                        <h6 class="mt-1">
-                                            Jumlah Karyawan : {{ $jumlah_karyawan }}
-                                        </h6>
-                                    </div>
+                                    <h3 class="card-title mt-1">
+                                        Daftar Karyawan
+                                    </h3>
                                     <div class="card-tools">
                                         @if (auth()->user()->level == 0)
                                             <a class="btn btn-sm btn-primary mt-1" href="{{ route('karyawan.create') }}"><i

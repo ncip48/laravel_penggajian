@@ -42,8 +42,8 @@ $is_edit = isset($data);
                                 <h3 class="card-title">{{ $is_edit ? 'Edit' : 'Tambah' }} Potongan</h3>
                             </div>
                             <form id="main-form"
-                                action="{{ $is_edit ? route('setting-potong-gaji.update', $data) : route('setting-potong-gaji.store') }}"
-                                method="POST" autocomplete="off" data-back="{{ route('setting-potong-gaji.index') }}">
+                                action="{{ $is_edit ? route('potong-gaji.update', $data) : route('potong-gaji.store') }}"
+                                method="POST" autocomplete="off" data-back="{{ route('potong-gaji.index') }}">
                                 @csrf
                                 {!! $is_edit ? method_field('PUT') : '' !!}
                                 <div class="card-body">

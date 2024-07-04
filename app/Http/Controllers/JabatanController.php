@@ -14,9 +14,7 @@ class JabatanController extends Controller
     public function index()
     {
         $jabatans = Jabatan::all();
-        $jumlah_jabatan = Jabatan::count();
         return view('jabatan.index')
-            ->with('jumlah_jabatan', $jumlah_jabatan)
             ->with('jabatans', $jabatans);
     }
 

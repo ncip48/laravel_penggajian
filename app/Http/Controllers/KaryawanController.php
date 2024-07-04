@@ -18,9 +18,7 @@ class KaryawanController extends Controller
     {
 
         $karyawans = Karyawan::with('jabatan')->get();
-        $jumlah_karyawan = Karyawan::count();
         return view('karyawan.index')
-            ->with('jumlah_karyawan', $jumlah_karyawan)
             ->with('karyawans', $karyawans);
     }
 

@@ -51,6 +51,11 @@ class ProfileController extends Controller
 
         $validator = Validator::make($request->all(), [
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'avatar.required' => 'Pilih file terlebih dahulu',
+            'avatar.image' => 'File harus bertipe gambar',
+            'avatar.mimes' => 'File yang diperbolehkan berformat jpeg,png,jpg,gif,svg',
+            'avatar.max' => 'Maksimal ukuran file 2mb'
         ]);
 
         if ($validator->fails()) {

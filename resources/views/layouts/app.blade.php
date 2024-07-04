@@ -2,333 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ env('APP_NAME') }} | @yield('title')</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" />
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-    <!-- Themestyle -->
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+    <title>Kavling App</title>
 
-    {{-- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-        rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/icheck.css') }}">
+    <!-- Vendors Style -->
+    <link rel="stylesheet" href="{{ asset('css/vendors_css.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('dist/iconpicker-1.5.0.css') }}" />
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/skin_color.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}" />
+    <style>
+        .template {
+            position: 'absolute';
+            height: 0px;
+            z-index: 1;
+        }
+
+        .floating {
+            position: 'absolute';
+            z-index: 2;
+        }
+
+        .clicked g {
+            cursor: pointer;
+        }
+
+        .theme-primary .label-white {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        /* Style for required fields */
+        .required label::after {
+            content: '*';
+            color: red;
+            margin-left: 3px;
+        }
+
+        /* Hide asterisk for non-required fields */
+    </style>
 </head>
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
-
-        <!-- Preloader -->
-        {{-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="https://imsservice.co.id/assets/inka-border.png" alt="AdminLTELogo"
-                height="60">
-        </div> --}}
-
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
-                </li>
-
-            </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="{{ route('dashboard') }}" class="brand-link d-flex">
-                {{-- <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3"> --}}
-                <span class="brand-text font-weight-normal text-center w-100">Penggajian Karyawan</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
-                    <div class="image">
-                        <img src="{{ Auth::user()->avatar ? asset('assets/img/avatar/' . Auth::user()->avatar) : asset('assets/img/default.png') }}"
-                            class="img-circle" alt="User Image" style="height: 2.1rem">
-                    </div>
-                    <div class="info align-text-center" style="text-wrap:wrap">
-                        <a class="d-block">{{ Auth::user()->name }} ({{ Auth::user()->getRole() }})
-                    </div>
-                </div>
-
-                {{-- <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-
-                        <li class="nav-item">
-                            <a href="{{ route('dashboard') }}"
-                                class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                        <li
-                            class="nav-item {{ request()->routeIs('absensi.*') || request()->routeIs('lembur.*') || request()->routeIs('setting-potong-gaji.*') || request()->routeIs('gaji.*') ? 'menu-open' : '' }}">
-                            <a href="#"
-                                class="nav-link {{ request()->routeIs('absensi.*') || request()->routeIs('lembur.*') || request()->routeIs('setting-potong-gaji.*') || request()->routeIs('gaji.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Transaksi
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @if (auth()->user()->level == 0)
-                                    <li class="nav-item">
-                                        <a href="{{ route('absensi.index') }}"
-                                            class="nav-link {{ request()->routeIs('absensi.*') ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Data Absensi</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('lembur.index') }}"
-                                            class="nav-link {{ request()->routeIs('lembur.*') ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Data Lembur</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('setting-potong-gaji.index') }}"
-                                            class="nav-link {{ request()->routeIs('setting-potong-gaji.*') ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Setting Potong</p>
-                                        </a>
-                                    </li>
-                                @endif
-                                <li class="nav-item">
-                                    <a href="{{ route('gaji.index') }}"
-                                        class="nav-link {{ request()->routeIs('gaji.*') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Gaji</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @if (auth()->user()->level != 2)
-                            <li
-                                class="nav-item {{ request()->routeIs('karyawan.*') || request()->routeIs('jabatan.*') ? 'menu-open' : '' }}">
-                                <a href="#"
-                                    class="nav-link {{ request()->routeIs('karyawan.*') || request()->routeIs('jabatan.*') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-columns"></i>
-                                    <p>
-                                        Master Data
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    @if (auth()->user()->level != 2)
-                                        <li class="nav-item">
-                                            <a href="{{ route('karyawan.index') }}"
-                                                class="nav-link {{ request()->routeIs('karyawan.*') ? 'active' : '' }}">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Data Karyawan</p>
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (auth()->user()->level == 0)
-                                        <li class="nav-item">
-                                            <a href="{{ route('jabatan.index') }}"
-                                                class="nav-link {{ request()->routeIs('jabatan.*') ? 'active' : '' }}">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Data Jabatan</p>
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-                        <li
-                            class="nav-item {{ request()->routeIs('laporan.gaji') || request()->routeIs('laporan.absen') || request()->routeIs('slip.gaji') ? 'menu-open' : '' }}">
-                            <a href="#"
-                                class="nav-link {{ request()->routeIs('laporan.gaji') || request()->routeIs('laporan.absen') || request()->routeIs('slip.gaji') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>
-                                    Laporan
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @if (auth()->user()->level == 0)
-                                    <li class="nav-item">
-                                        <a href="{{ route('laporan.gaji') }}"
-                                            class="nav-link {{ request()->routeIs('laporan.gaji') ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Gaji</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('laporan.absen') }}"
-                                            class="nav-link {{ request()->routeIs('laporan.absen') ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Absen</p>
-                                        </a>
-                                    </li>
-                                @endif
-                                <li class="nav-item">
-                                    <a href="{{ route('slip.gaji') }}"
-                                        class="nav-link {{ request()->routeIs('slip.gaji') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Slip Gaji</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('ubah-profile') }}"
-                                class="nav-link {{ request()->routeIs('ubah-profile') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-cog"></i>
-                                <p>
-                                    Ubah Profile
-                                </p>
-                            </a>
-                        </li>
-
-                        <form action="{{ route('logout') }}" id="logout" method="POST">
-                            @csrf
-                        </form>
-                        <li class="nav-item">
-                            <a onclick="document.getElementById('logout').submit();" class="nav-link"
-                                style="cursor: pointer">
-                                <i class="nav-icon fa fa-sign-out-alt"></i>
-                                <p>Logout</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+        @include('layouts.navbar')
+        <!-- comment -->
+        @include('layouts.sidebar')
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="container-full">
+                <!-- Content Header (Page header) -->
+                @yield('content')
+                <!-- /.content -->
             </div>
-            <!-- /.sidebar -->
-        </aside>
+        </div>
+        <!-- /.content-wrapper -->
 
-        @yield('content')
+        <!-- modal -->
+        <div class="modal center-modal fade" id="ajax-modal" tabindex="-1" style="display: block" aria-modal="true"
+            role="dialog"></div>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; {{ now()->year }} </strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                Template by AdminLTE <b>Version</b> 3.2.0
-            </div>
+            &copy;{{ date('Y') }}
+            <a href="https://dotech.cfd">PT Dotech Digital Solution</a>. All Rights Reserved.
         </footer>
     </div>
-    <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- overlayScrollbars -->
-    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    <!-- Page Content overlay -->
 
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="{{ asset('plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
-    <script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
-    <script src="{{ asset('plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
-    <!-- ChartJS -->
-    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <!-- Vendor JS -->
+    <script src="{{ asset('js/vendors.min.js') }}"></script>
+    <script src="{{ asset('js/pages/chat-popup.js') }}"></script>
+    <script src="{{ asset('assets/icons/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-validation/jquery.validate.min.js') }}"></script>
 
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
+    <!-- Crypto Tokenizer Admin App -->
+    <script src="{{ asset('js/template.js') }}"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
 
-    <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
-
-    <script src="{{ asset('assets/plugins/sweetalert/sweetalert2.all.min.js') }}" type="text/javascript"></script>
-
-
-    @stack('scripts')
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <div id="ajax-modal" class="modal fade animate shake" tabindex="-1" role="dialog" data-backdrop="static"
         data-keyboard="false" data-width="75%" aria-hidden="true" data-close-on-escape="true"></div>
+
+    @stack('scripts')
 
     <script>
         $(function() {

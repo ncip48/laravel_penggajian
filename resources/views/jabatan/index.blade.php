@@ -36,14 +36,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-column">
-                                        <h3 class="card-title mt-1">
-                                            Daftar Jabatan
-                                        </h3>
-                                        <h6 class="mt-1">
-                                            Jumlah Jabatan : {{ $jumlah_jabatan }}
-                                        </h6>
-                                    </div>
+                                    <h3 class="card-title mt-1">
+                                        Daftar Jabatan
+                                    </h3>
                                     <div class="card-tools">
                                         <a class="btn btn-sm btn-primary mt-1" href="{{ route('jabatan.create') }}"><i
                                                 class="fas fa-plus"></i>

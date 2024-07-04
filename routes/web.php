@@ -48,7 +48,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::resource('lembur', LemburController::class);
 
     //setting potong gaji
-    Route::resource('setting-potong-gaji', PotongGajiController::class);
+    Route::resource('potong-gaji', PotongGajiController::class);
 
     //gaji
     Route::resource('gaji', GajiController::class);

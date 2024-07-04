@@ -42,8 +42,8 @@
                                         </h3>
                                     </div>
                                     <div class="card-tools">
-                                        <a class="btn btn-sm btn-primary mt-1"
-                                            href="{{ route('setting-potong-gaji.create') }}"><i class="fas fa-plus"></i>
+                                        <a class="btn btn-sm btn-primary mt-1" href="{{ route('potong-gaji.create') }}"><i
+                                                class="fas fa-plus"></i>
                                             Tambah Potongan</a>
                                     </div>
                                 </div>
@@ -73,11 +73,11 @@
                                                     <td>@currency($potong->potongan_gaji)</td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a href="{{ route('setting-potong-gaji.edit', $potong->id_potong_gaji) }}"
+                                                            <a href="{{ route('potong-gaji.edit', $potong->id_potong_gaji) }}"
                                                                 class="btn btn-sm btn-warning"><i
                                                                     class="fas fa-edit"></i></a>
                                                             <form data-reload="true" id="main-form"
-                                                                action="{{ route('setting-potong-gaji.destroy', $potong) }}"
+                                                                action="{{ route('potong-gaji.destroy', $potong) }}"
                                                                 method="POST" class="ml-1 delete-form">
                                                                 @csrf
                                                                 @method('DELETE')
