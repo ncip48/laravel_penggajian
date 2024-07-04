@@ -11,7 +11,7 @@
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{% url 'dashboard' %}"><i class="mdi mdi-home-outline"></i></a>
+                                <a href="{{ route('dashboard') }}"><i class="mdi mdi-home-outline"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                         </ol>
@@ -33,7 +33,7 @@
                             <p>Data Karyawan</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon fas fa-user-alt"></i>
+                            {{-- <i class="nav-icon fas fa-user-alt"></i> --}}
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             <p>Data Admin</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon fas fa-users"></i>
+                            {{-- <i class="nav-icon fas fa-users"></i> --}}
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                             <p>Data Jabatan</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon fas fa-graduation-cap"></i>
+                            {{-- <i class="nav-icon fas fa-graduation-cap"></i> --}}
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <p>Data Kehadiran</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon fas fa-calendar"></i>
+                            {{-- <i class="nav-icon fas fa-calendar"></i> --}}
                         </div>
                     </div>
                 </div>
