@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,12 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
+        $check = User::where('username', $request->username)->first();
+
+        if (!$check) {
+            return $this->setResponse(false, 'User tidak ditemukan', null);
+        }
+
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $user = Auth::user();
 
@@ -63,9 +70,9 @@ class LoginController extends Controller
                 'redirect' => $redirect
             ];
 
-            return $this->setResponse(true, 'Login success', $data);
+            return $this->setResponse(true, 'Berhasil login, tunggu sebentar...', $data);
         } else {
-            return $this->setResponse(false, 'Credentials do not match', null);
+            return $this->setResponse(false, 'NIK atau password salah', null);
         }
     }
 }

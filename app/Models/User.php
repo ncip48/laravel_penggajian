@@ -24,7 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'level'
+        'level',
+        'avatar'
     ];
 
     /**
@@ -50,5 +51,16 @@ class User extends Authenticatable
     public function karyawan()
     {
         return $this->hasOne('App\Models\Karyawan', 'id_user');
+    }
+
+    public function getRole()
+    {
+        if ($this->level == 0) {
+            return "Admin";
+        } elseif ($this->level == 1) {
+            return "Manager Keuangan";
+        } else {
+            return "Karyawan";
+        }
     }
 }

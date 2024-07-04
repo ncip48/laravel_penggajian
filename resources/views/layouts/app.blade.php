@@ -245,11 +245,11 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ubah-password') }}"
-                                class="nav-link {{ request()->routeIs('ubah-password') ? 'active' : '' }}">
+                            <a href="{{ route('ubah-profile') }}"
+                                class="nav-link {{ request()->routeIs('ubah-profile') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-key"></i>
                                 <p>
-                                    Ubah Password
+                                    Ubah Profile
                                 </p>
                             </a>
                         </li>

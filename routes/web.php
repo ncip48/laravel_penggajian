@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsensiController;
-use App\Http\Controllers\Auth\UbahPasswordController;
+use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JabatanController;
@@ -64,6 +64,8 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::post('slip-gaji', [LaporanSlipGaji::class, 'print'])->name('slip.gaji.print');
 
     //ubah password
-    Route::get('ubah-password', [UbahPasswordController::class, 'index'])->name('ubah-password');
-    Route::put('ubah-password', [UbahPasswordController::class, 'action'])->name('ubah-password.action');
+    Route::get('profile', [ProfileController::class, 'index'])->name('ubah-profile');
+    Route::put('ubah-profile', [ProfileController::class, 'ubah_profile'])->name('profile.update');
+    Route::put('ubah-avatar', [ProfileController::class, 'action'])->name('avatar.update');
+    Route::put('ubah-password', [ProfileController::class, 'ubah_password'])->name('password.update');
 });
