@@ -85,7 +85,7 @@
                                             src="{{ $user->avatar ? asset('assets/img/avatar/' . $user->avatar) : asset('assets/img/default.png') }}"
                                             alt="User profile picture" style="height: 90px;width:90px">
                                         <div class="form-group w-100">
-                                            <label for="avatar">New Avatar</label>
+                                            <label for="avatar">Avatar Baru</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="avatar"

@@ -63,7 +63,7 @@ class ProfileController extends Controller
 
         //remove old avatar
         $oldAvatar = public_path('assets/img/avatar/') . $user->avatar;
-        if (file_exists($oldAvatar)) {
+        if (file_exists($oldAvatar) && $user->avatar) {
             unlink($oldAvatar);
         }
 

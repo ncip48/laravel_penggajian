@@ -66,6 +66,6 @@ Route::middleware(['auth', 'web'])->group(function () {
     //ubah password
     Route::get('profile', [ProfileController::class, 'index'])->name('ubah-profile');
     Route::put('ubah-profile', [ProfileController::class, 'ubah_profile'])->name('profile.update');
-    Route::put('ubah-avatar', [ProfileController::class, 'action'])->name('avatar.update');
+    Route::put('ubah-avatar', [ProfileController::class, 'ubah_avatar'])->name('avatar.update');
     Route::put('ubah-password', [ProfileController::class, 'ubah_password'])->name('password.update');
 });

@@ -101,7 +101,7 @@
                             class="img-circle" alt="User Image" style="height: 2.1rem">
                     </div>
                     <div class="info align-text-center" style="text-wrap:wrap">
-                        <a class="d-block">{{ Auth::user()->name }}
+                        <a class="d-block">{{ Auth::user()->name }} ({{ Auth::user()->getRole() }})
                     </div>
                 </div>
 
