@@ -5,7 +5,7 @@
             <img src="{{ asset('images/svg-icon/collapse.svg') }}" class="img-fluid svg-icon" alt="" />
         </a>
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="{{ route('dashboard') }}" class="logo">
             <div class="logo-lg fs-4 fw-bold">Penggajian</div>
         </a>
     </div>
