@@ -27,6 +27,10 @@ class ProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|unique:users,email,' . $user->id_user . ',id_user',
+        ], [
+            'name.required' => 'Nama harus diisi',
+            'email.required' => 'Email harus diisi',
+            'email.unique' => 'Email sudah terdaftar',
         ]);
 
         if ($validator->fails()) {

@@ -29,25 +29,25 @@
                     <div class="box-header">
                         <h4 class="box-title">Profile</h4>
                     </div>
-                    <form id="main-form" action="{{ route('profile.update') }}" method="POST" autocomplete="off"
+                    <form id="main-form-delete" action="{{ route('profile.update') }}" method="POST" autocomplete="off"
                         data-reload=true>
                         @csrf
                         {!! method_field('PUT') !!}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="username">NIK</label>
+                                <label for="username">Username</label>
                                 <input type="text" class="form-control" id="username" readonly disabled
                                     value="{{ $user->username }}">
                                 <small class="text-xs text-red">Anda tidak dapat mengubah NIK yang menjadi username
                                     login anda. Silahkan
                                     hubungi admin untuk mengubah NIK anda</small>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" id="email" value="{{ $user->email }}"
                                     name="email">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="name">Nama</label>
                                 <input type="text" class="form-control" id="name" value="{{ $user->name }}"
                                     name="name">
@@ -95,7 +95,7 @@
                     <div class="card-header">
                         <h4 class="card-title">Password</h4>
                     </div>
-                    <form id="main-form" action="{{ route('password.update') }}" method="POST" autocomplete="off"
+                    <form id="main-form-delete" action="{{ route('password.update') }}" method="POST" autocomplete="off"
                         data-reload="true">
                         @csrf
                         {!! method_field('PUT') !!}
