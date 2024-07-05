@@ -79,7 +79,7 @@
                             <li class="{{ request()->routeIs('gaji.*') ? 'active' : '' }}">
                                 <a href="{{ route('gaji.index') }}">
                                     <i class="ti-more"></i>
-                                    <span>Data Gaji</span>
+                                    <span>Gaji</span>
                                 </a>
                             </li>
                         </ul>
