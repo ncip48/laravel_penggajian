@@ -36,8 +36,8 @@
                             </h4>
                             <div class="box-tools">
                                 @if (auth()->user()->level == 0)
-                                    <a class="btn btn-sm btn-primary mt-1" href="{{ route('karyawan.create') }}"><i
-                                            class="fa fa-plus"></i>
+                                    <a href="#" class="btn btn-sm btn-primary mt-1 ajax_modal"
+                                        data-url="{{ route('karyawan.create') }}"><i class="fa fa-plus"></i>
                                         Tambah</a>
                                 @endif
                             </div>
@@ -82,9 +82,11 @@
                                             @if (auth()->user()->level == 0)
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="{{ route('karyawan.edit', $karyawan->id_karyawan) }}"
-                                                            class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
-                                                        <form data-reload="true" id="main-form"
+                                                        <a href="#"
+                                                            data-url="{{ route('karyawan.edit', $karyawan->id_karyawan) }}"
+                                                            class="btn btn-sm btn-warning ajax_modal"><i
+                                                                class="fa fa-pencil"></i></a>
+                                                        <form data-reload="true" id="main-form-delete"
                                                             action="{{ route('karyawan.destroy', $karyawan) }}"
                                                             method="POST" class="ms-1 delete-form">
                                                             @csrf
