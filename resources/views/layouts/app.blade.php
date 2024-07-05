@@ -106,7 +106,6 @@
 
     @stack('scripts')
 
-
     <!-- modal -->
     <div class="modal center-modal fade" id="ajax-modal"></div>
 
