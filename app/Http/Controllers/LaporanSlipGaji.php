@@ -76,7 +76,7 @@ class LaporanSlipGaji extends Controller
         $bulan = Carbon::createFromFormat('m', $request->bulan)->locale('id')->isoFormat('MMMM');
         $tahun = $request->tahun;
 
-        // return view('print.slip', compact('data'));
+        // return view('print.slip', compact('gajis', 'bulan', 'tahun'));
 
         $pdf = Pdf::loadView('print.slip', compact('gajis', 'bulan', 'tahun'));
         return $pdf->stream("slip_gaji_$request->bulan $request->tahun.pdf");

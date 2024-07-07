@@ -37,6 +37,9 @@
                                 </h4>
                             </div>
                             <div class="box-tools">
+                                <a href="#" class="btn btn-sm btn-warning mt-1 me-2 ajax_modal"
+                                    data-url="{{ route('absensi.create') }}"><i class="fa fa-file-excel-o"></i>
+                                    Import</a>
                                 <a href="#" class="btn btn-sm btn-primary mt-1 ajax_modal"
                                     data-url="{{ route('absensi.create') }}"><i class="fa fa-plus"></i>
                                     Tambah</a>

@@ -18,9 +18,9 @@
         }
 
         hr.s1 {
-            height: 5px;
-            border-top: 1px solid black;
-            border-bottom: 2px solid black;
+            height: 3px;
+            border-bottom: 1px solid black;
+            border-top: 2px solid black;
             border-left: 0px solid transparent;
             border-right: 0px solid transparent;
         }
