@@ -3,7 +3,7 @@
     <div class="auth-2-outer row align-items-center h-p100 m-0">
         <div class="auth-2 bg-white">
             <div class="auth-logo fs-30">
-                <a href="/"><b>Penggajian</b>Admin</a>
+                <a href="/"><b>Penggajian</b></a>
             </div>
             <!-- /.login-logo -->
             <div class="auth-body">

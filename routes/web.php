@@ -11,6 +11,7 @@ use App\Http\Controllers\LaporanGaji;
 use App\Http\Controllers\LaporanSlipGaji;
 use App\Http\Controllers\LemburController;
 use App\Http\Controllers\PotongGajiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,9 @@ Route::middleware(['auth', 'web'])->group(function () {
 
     //setting potong gaji
     Route::resource('potong-gaji', PotongGajiController::class);
+
+    //user
+    Route::resource('user', UserController::class);
 
     //gaji
     Route::resource('gaji', GajiController::class);

@@ -95,7 +95,7 @@ class KaryawanController extends Controller
             'tanggal_masuk' => $request->tanggal_masuk
         ]);
 
-        return $this->setResponse(true, "Sukses membuat jabatan");
+        return $this->setResponse(true, "Sukses membuat karyawan");
     }
 
     /**

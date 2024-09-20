@@ -72,7 +72,7 @@ class LoginController extends Controller
 
             return $this->setResponse(true, 'Berhasil login, tunggu sebentar...', $data);
         } else {
-            return $this->setResponse(false, 'NIK atau password salah', null);
+            return $this->setResponse(false, 'NIK/Username atau password salah', null);
         }
     }
 }

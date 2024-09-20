@@ -43,6 +43,14 @@
                                         </a>
                                     </li>
                                 @endif
+                                @if (auth()->user()->level == 0)
+                                    <li class="{{ request()->routeIs('user.*') ? 'active' : '' }}">
+                                        <a href="{{ route('user.index') }}">
+                                            <i class="ti-more"></i>
+                                            <span>User</span>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                     @endif

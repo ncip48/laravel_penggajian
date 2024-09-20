@@ -100,15 +100,15 @@
                         @csrf
                         {!! method_field('PUT') !!}
                         <div class="card-body">
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="old_password">Password Lama</label>
                                 <input type="password" class="form-control" id="old_password" name="old_password">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="password">Password Baru</label>
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="password_confirmation">Konfirmasi Password Baru</label>
                                 <input type="password" class="form-control" id="password_confirmation"
                                     name="password_confirmation">
