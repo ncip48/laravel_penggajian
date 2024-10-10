@@ -40,7 +40,7 @@ class GajiController extends Controller
      */
     public function create()
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         return view('gaji.action')
             ->with('karyawans', $karyawans);
     }
@@ -87,7 +87,7 @@ class GajiController extends Controller
      */
     public function show(string $id)
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         $data = Gaji::find($id);
         $data->periode_gaji = Carbon::parse($data->periode_gaji)->format('Y-m');
         return view('gaji.detail')
@@ -100,7 +100,7 @@ class GajiController extends Controller
      */
     public function edit(string $id)
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         $data = Gaji::find($id);
         $data->periode_gaji = Carbon::parse($data->periode_gaji)->format('Y-m');
         return view('gaji.action')

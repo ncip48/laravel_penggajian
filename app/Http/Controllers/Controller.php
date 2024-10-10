@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class Controller extends BaseController
 {
@@ -37,5 +39,14 @@ class Controller extends BaseController
     {
         unset($request['_token']);
         unset($request['_method']);
+    }
+
+    protected function getKaryawans()
+    {
+        $karyawans = Cache::driver('redis')->remember('karyawans', now()->addMinutes(150), function () {
+            return Karyawan::with('jabatan')->get();
+        });
+
+        return $karyawans;
     }
 }

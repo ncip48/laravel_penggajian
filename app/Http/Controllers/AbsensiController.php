@@ -32,7 +32,7 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         return view('absensi.action')
             ->with('karyawans', $karyawans);
     }
@@ -83,7 +83,7 @@ class AbsensiController extends Controller
      */
     public function edit(string $id)
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         $data = Absensi::find($id);
         $data->bulan = Carbon::parse($data->bulan)->format('Y-m');
         return view('absensi.action')

@@ -14,12 +14,17 @@ class KaryawanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $karyawans = Karyawan::with('jabatan')->get();
-        return view('karyawan.index')
-            ->with('karyawans', $karyawans);
+        if ($request->wantsJson()) {
+            $karyawans = $this->getKaryawans();
+            return $this->setResponse(200, "Success", $karyawans);
+        } else {
+            $karyawans = $this->getKaryawans();
+            return view('karyawan.index')
+                ->with('karyawans', $karyawans);
+        }
     }
 
     /**

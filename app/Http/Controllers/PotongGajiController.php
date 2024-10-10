@@ -25,7 +25,7 @@ class PotongGajiController extends Controller
      */
     public function create()
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         return view('potong_gaji.action')
             ->with('karyawans', $karyawans);
     }
@@ -75,7 +75,7 @@ class PotongGajiController extends Controller
      */
     public function edit(string $id)
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         $data = PotonganGaji::find($id);
         $data->bulan = Carbon::parse($data->bulan)->format('Y-m');
         return view('potong_gaji.action')

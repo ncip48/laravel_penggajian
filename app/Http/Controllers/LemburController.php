@@ -24,7 +24,7 @@ class LemburController extends Controller
      */
     public function create()
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         return view('lembur.action')
             ->with('karyawans', $karyawans);
     }
@@ -71,7 +71,7 @@ class LemburController extends Controller
      */
     public function edit(string $id)
     {
-        $karyawans = Karyawan::all();
+        $karyawans = $this->getKaryawans();
         $data = Lembur::find($id);
         return view('lembur.action')
             ->with('data', $data)
