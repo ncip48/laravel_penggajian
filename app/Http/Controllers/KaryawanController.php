@@ -18,10 +18,10 @@ class KaryawanController extends Controller
     {
 
         if ($request->wantsJson()) {
-            $karyawans = $this->getKaryawans();
+            $karyawans = $this->getKaryawans(false);
             return $this->setResponse(200, "Success", $karyawans);
         } else {
-            $karyawans = $this->getKaryawans();
+            $karyawans = $this->getKaryawans(false);
             return view('karyawan.index')
                 ->with('karyawans', $karyawans);
         }
