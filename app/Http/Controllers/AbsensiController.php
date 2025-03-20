@@ -176,8 +176,10 @@ class AbsensiController extends Controller
 
         $obj = [];
         $obj['gaji']['uang_lembur'] = $gaji_pokok->jabatan->uang_lembur;
-        $obj['gaji']['uang_makan'] = $gaji_pokok->jabatan->uang_makan;
-        $obj['gaji']['tunjangan_transportasi'] = $gaji_pokok->jabatan->tunjangan_transportasi;
+        // $obj['gaji']['uang_makan'] = $gaji_pokok->jabatan->uang_makan;
+        // $obj['gaji']['tunjangan_transportasi'] = $gaji_pokok->jabatan->tunjangan_transportasi;
+        $obj['gaji']['uang_makan'] = 0;
+        $obj['gaji']['tunjangan_transportasi'] = 0;
         $obj['gaji']['gaji_pokok'] = $gaji_pokok->jabatan->gaji_pokok;
 
         if ($absensi) {

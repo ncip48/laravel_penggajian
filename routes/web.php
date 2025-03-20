@@ -11,6 +11,7 @@ use App\Http\Controllers\LaporanGaji;
 use App\Http\Controllers\LaporanSlipGaji;
 use App\Http\Controllers\LemburController;
 use App\Http\Controllers\PotongGajiController;
+use App\Http\Controllers\SPKController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -72,4 +73,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::put('ubah-profile', [ProfileController::class, 'ubah_profile'])->name('profile.update');
     Route::put('ubah-avatar', [ProfileController::class, 'ubah_avatar'])->name('avatar.update');
     Route::put('ubah-password', [ProfileController::class, 'ubah_password'])->name('password.update');
+
+    //spk
+    Route::get('/performance-evaluation', [SPKController::class, 'index']);
 });

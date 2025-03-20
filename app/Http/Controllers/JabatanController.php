@@ -35,18 +35,18 @@ class JabatanController extends Controller
             'nama_jabatan' => 'required',
             'gaji_pokok' => 'required|numeric',
             'uang_lembur' => 'required|numeric',
-            'tunjangan_transportasi' => 'required|numeric',
-            'uang_makan' => 'required|numeric',
+            // 'tunjangan_transportasi' => 'required|numeric',
+            // 'uang_makan' => 'required|numeric',
         ], [
             'nama_jabatan.required' => 'Nama jabatan tidak boleh kosong',
             'gaji_pokok.required' => 'Gaji pokok tidak boleh kosong',
             'gaji_pokok.numeric' => 'Gaji pokok harus berupa angka',
             'uang_lembur.required' => 'Uang lembur tidak boleh kosong',
             'uang_lembur.numeric' => 'Uang lembur harus berupa angka',
-            'tunjangan_transportasi.required' => 'Tunjangan transportasi tidak boleh kosong',
-            'tunjangan_transportasi.numeric' => 'Tunjangan transportasi harus berupa angka',
-            'uang_makan.required' => 'Uang makan tidak boleh kosong',
-            'uang_makan.numeric' => 'Uang makan harus berupa angka',
+            // 'tunjangan_transportasi.required' => 'Tunjangan transportasi tidak boleh kosong',
+            // 'tunjangan_transportasi.numeric' => 'Tunjangan transportasi harus berupa angka',
+            // 'uang_makan.required' => 'Uang makan tidak boleh kosong',
+            // 'uang_makan.numeric' => 'Uang makan harus berupa angka',
         ]);
 
         if ($validator->fails()) {
@@ -65,9 +65,7 @@ class JabatanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -90,14 +88,14 @@ class JabatanController extends Controller
             'nama_jabatan' => 'required',
             'gaji_pokok' => 'required',
             'uang_lembur' => 'required',
-            'tunjangan_transportasi' => 'required',
-            'uang_makan' => 'required',
+            // 'tunjangan_transportasi' => 'required',
+            // 'uang_makan' => 'required',
         ], [
             'nama_jabatan.required' => 'Nama jabatan tidak boleh kosong',
             'gaji_pokok.required' => 'Gaji pokok tidak boleh kosong',
             'uang_lembur.required' => 'Uang lembur tidak boleh kosong',
-            'tunjangan_transportasi.required' => 'Tunjangan transportasi tidak boleh kosong',
-            'uang_makan.required' => 'Uang makan tidak boleh kosong',
+            // 'tunjangan_transportasi.required' => 'Tunjangan transportasi tidak boleh kosong',
+            // 'uang_makan.required' => 'Uang makan tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {

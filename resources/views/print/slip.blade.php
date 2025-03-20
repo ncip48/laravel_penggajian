@@ -181,7 +181,7 @@
                     <td>(+)</td>
                     <td>@currency($gaji->total_uang_lembur)</td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>b)</td>
                     <td>Uang Makan</td>
                     <td>(+)</td>
@@ -192,7 +192,7 @@
                     <td>Tunjangan Transportasi</td>
                     <td>(+)</td>
                     <td>@currency($gaji->total_tunjangan_transportasi)</td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td></td>
                     <td></td>

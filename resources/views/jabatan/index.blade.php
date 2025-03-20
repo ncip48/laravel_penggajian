@@ -51,8 +51,8 @@
                                         <th>#</th>
                                         <th>Nama Jabatan</th>
                                         <th>Gaji Pokok</th>
-                                        <th>Tunjangan Transportasi</th>
-                                        <th>Uang Makan</th>
+                                        {{-- <th>Tunjangan Transportasi</th>
+                                        <th>Uang Makan</th> --}}
                                         <th>Uang Lembur</th>
                                         <th>Action</th>
                                     </tr>
@@ -63,8 +63,8 @@
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $jabatan->nama_jabatan }}</td>
                                             <td>@currency($jabatan->gaji_pokok)</td>
-                                            <td>@currency($jabatan->tunjangan_transportasi)</td>
-                                            <td>@currency($jabatan->uang_makan)/hari</td>
+                                            {{-- <td>@currency($jabatan->tunjangan_transportasi)</td>
+                                            <td>@currency($jabatan->uang_makan)/hari</td> --}}
                                             <td>@currency($jabatan->uang_lembur)/jam</td>
                                             <td>
                                                 <div class="d-flex">

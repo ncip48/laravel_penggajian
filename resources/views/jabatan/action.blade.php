@@ -31,19 +31,19 @@ $is_edit = isset($data);
                             value="{{ isset($data->uang_lembur) ? $data->uang_lembur : '' }}" required>
                         <small class="text-xs text-muted">Masukkan nominal uang lembur per jam</small>
                     </div>
-                    <div class="form-group required">
+                    {{-- <div class="form-group required">
                         <label for="tunjangan_transportasi">Tunjangan Transportasi</label>
                         <input type="text" class="form-control" id="tunjangan_transportasi"
                             name="tunjangan_transportasi"
                             value="{{ isset($data->tunjangan_transportasi) ? $data->tunjangan_transportasi : '' }}"
                             required>
-                    </div>
-                    <div class="form-group required">
+                    </div> --}}
+                    {{-- <div class="form-group required">
                         <label for="uang_makan">Uang Makan (/hari)</label>
                         <input type="text" class="form-control" id="uang_makan" name="uang_makan"
                             value="{{ isset($data->uang_makan) ? $data->uang_makan : '' }}" required>
                         <small class="text-xs text-muted">Masukkan nominal uang makan per hari</small>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="modal-footer modal-footer-uniform d-flex">

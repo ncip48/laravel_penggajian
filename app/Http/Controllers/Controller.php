@@ -41,12 +41,16 @@ class Controller extends BaseController
         unset($request['_method']);
     }
 
-    protected function getKaryawans($use_cache = true)
+    protected function getKaryawans($use_cache = false)
     {
-        $karyawans = Cache::driver('redis')->remember('karyawans', now()->addMinutes(150), function () {
-            return Karyawan::with('jabatan')->get();
-        });
+        if ($use_cache) {
+            $karyawans = Cache::driver('redis')->remember('karyawans', now()->addMinutes(150), function () {
+                return Karyawan::with('jabatan')->get();
+            });
+        } else {
+            $karyawans = Karyawan::with('jabatan')->get();
+        }
 
-        return $use_cache ? $karyawans : Karyawan::with('jabatan')->get();
+        return $karyawans;
     }
 }

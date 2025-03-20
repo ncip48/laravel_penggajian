@@ -67,27 +67,26 @@ $is_edit = isset($data);
                                             value="{{ isset($data->gaji_pokok) ? $data->gaji_pokok : '' }}" readonly
                                             required>
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="total_uang_makan">Total Uang Makan</label>
                                         <input type="text" class="form-control" id="total_uang_makan"
                                             name="total_uang_makan" readonly disabled>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label for="total_uang_lembur">Total Uang Lembur</label>
                                         <input type="text" class="form-control" id="total_uang_lembur"
-                                            name="total_uang_lembur" readonly disabled>
+                                            name="total_uang_lembur">
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="total_tunjangan_transportasi">Total Tunjangan
                                             Transportasi</label>
                                         <input type="text" class="form-control" id="total_tunjangan_transportasi"
                                             name="total_tunjangan_transportasi" readonly disabled required>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label for="total_bonus">Total Bonus</label>
                                         <input type="text" class="form-control" id="total_bonus" name="total_bonus"
-                                            value="{{ isset($data->total_bonus) ? $data->total_bonus : '' }}" readonly
-                                            required>
+                                            value="{{ isset($data->total_bonus) ? $data->total_bonus : '' }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +95,7 @@ $is_edit = isset($data);
                     <div class="form-group">
                         <label for="potongan_gaji">Potongan Gaji</label>
                         <input type="text" class="form-control" id="potongan_gaji" name="potongan_gaji"
-                            value="{{ isset($data->potongan_gaji) ? $data->potongan_gaji : '' }}" readonly required>
+                            value="{{ isset($data->potongan_gaji) ? $data->potongan_gaji : '' }}" required>
                     </div>
                 </div>
             </div>
@@ -128,17 +127,19 @@ $is_edit = isset($data);
             success: function(data) {
                 console.log(data)
                 if (data.success) {
-                    const t_uang_makan = data?.data?.gaji?.uang_makan * data?.data?.absensi
-                        ?.masuk
+                    // const t_uang_makan = data?.data?.gaji?.uang_makan * data?.data?.absensi
+                    //     ?.masuk
+                    const t_uang_makan = 0
                     const t_uang_lembur = data?.data?.gaji?.uang_lembur * data?.data?.lembur
-                    const t_tunjangan_transportasi = data?.data?.gaji?.tunjangan_transportasi *
-                        data?.data?.absensi?.masuk
-                    const t_bonus = t_uang_lembur + t_uang_makan + t_tunjangan_transportasi
+                    // const t_tunjangan_transportasi = data?.data?.gaji?.tunjangan_transportasi *
+                    //     data?.data?.absensi?.masuk
+                    const t_tunjangan_transportasi = 0
+                    // const t_bonus = t_uang_lembur + t_uang_makan + t_tunjangan_transportasi
 
                     $('#total_uang_makan').val(t_uang_makan)
                     $('#total_uang_lembur').val(t_uang_lembur)
                     $('#total_tunjangan_transportasi').val(t_tunjangan_transportasi)
-                    $('#total_bonus').val(t_bonus)
+                    // $('#total_bonus').val(t_bonus)
 
                     $('#total_masuk').val(data?.data?.absensi?.masuk)
                     $('#total_izin').val(data?.data?.absensi?.izin)
@@ -177,17 +178,19 @@ $is_edit = isset($data);
                 success: function(data) {
                     console.log(data)
                     if (data.success) {
-                        const t_uang_makan = data?.data?.gaji?.uang_makan * data?.data?.absensi
-                            ?.masuk
+                        // const t_uang_makan = data?.data?.gaji?.uang_makan * data?.data?.absensi
+                        //     ?.masuk
+                        const t_uang_makan = 0
                         const t_uang_lembur = data?.data?.gaji?.uang_lembur * data?.data?.lembur
-                        const t_tunjangan_transportasi = data?.data?.gaji?.tunjangan_transportasi *
-                            data?.data?.absensi?.masuk
-                        const t_bonus = t_uang_lembur + t_uang_makan + t_tunjangan_transportasi
+                        // const t_tunjangan_transportasi = data?.data?.gaji?.tunjangan_transportasi *
+                        //     data?.data?.absensi?.masuk
+                        const t_tunjangan_transportasi = 0
+                        // const t_bonus = t_uang_lembur + t_uang_makan + t_tunjangan_transportasi
 
                         $('#total_uang_makan').val(t_uang_makan)
                         $('#total_uang_lembur').val(t_uang_lembur)
                         $('#total_tunjangan_transportasi').val(t_tunjangan_transportasi)
-                        $('#total_bonus').val(t_bonus)
+                        // $('#total_bonus').val(t_bonus)
 
                         $('#total_masuk').val(data?.data?.absensi?.masuk)
                         $('#total_izin').val(data?.data?.absensi?.izin)
