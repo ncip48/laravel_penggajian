@@ -193,10 +193,12 @@ class KaryawanController extends Controller
      */
     public function destroy(string $id)
     {
-        $delete = Karyawan::findOrFail($id);
-        $delete->delete();
+        $karyawan = Karyawan::findOrFail($id);
+        User::findOrFail($karyawan->id_user)->delete();
+        $karyawan->delete();
 
-        if ($delete) {
+
+        if ($karyawan) {
             return $this->setResponse(true, "Sukses hapus karyawan");
         } else {
             return $this->setResponse(true, "Gagal hapus karyawan");
